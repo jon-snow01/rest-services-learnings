@@ -1,11 +1,10 @@
 package com.rest.webservices.restfulwebservices.services;
 
 import com.rest.webservices.restfulwebservices.beans.User;
+import com.rest.webservices.restfulwebservices.exception.UserNotFoundException;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class UserDaoService {
@@ -29,7 +28,7 @@ public class UserDaoService {
                 return user;
             }
         }
-        return null;
+        throw new UserNotFoundException("id - "+id);
     }
 
     public User save(User user){
@@ -38,6 +37,18 @@ public class UserDaoService {
         }
         users.add(user);
         return user;
+    }
+
+    public User deleteUserById(int id){
+        Iterator<User> iterator = users.iterator();
+        while(iterator.hasNext()){
+            User user = iterator.next();;
+            if(user.getId() !=null && user.getId()==id){
+                iterator.remove();
+                return user;
+            }
+        }
+        throw new UserNotFoundException("id - "+id);
     }
 
 }

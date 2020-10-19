@@ -8,12 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class UserResource {
+public class UserController {
 
     @Autowired
     private UserDaoService userDaoService;
@@ -26,14 +27,11 @@ public class UserResource {
     @GetMapping("users/{id}")
     public User retrieveUser(@PathVariable int id){
         User user = userDaoService.findOne(id);
-        if(!Optional.ofNullable(user).isPresent()){
-            throw new UserNotFoundException("id - "+id);
-        }
         return user;
     }
 
     @PostMapping("/users")
-    public ResponseEntity<Object> createUser(@RequestBody User user){
+    public ResponseEntity<Object> createUser(@Valid @RequestBody User user){
         User savedUser = userDaoService.save(user);
 
         URI location = ServletUriComponentsBuilder
@@ -42,5 +40,11 @@ public class UserResource {
                         .buildAndExpand(savedUser.getId()).toUri();
 
         return ResponseEntity.created(location).build();
+    }
+
+    @DeleteMapping("users/{id}")
+    public User deleteUserById(@PathVariable int id){
+        User user = userDaoService.deleteUserById(id);
+        return user;
     }
 }
