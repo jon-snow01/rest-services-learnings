@@ -1,12 +1,12 @@
 package com.rest.webservices.restfulwebservices.controllers;
 
 import com.rest.webservices.restfulwebservices.beans.User;
-import com.rest.webservices.restfulwebservices.exception.UserNotFoundException;
 import com.rest.webservices.restfulwebservices.services.UserDaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 
 import javax.validation.Valid;
 import java.net.URI;
