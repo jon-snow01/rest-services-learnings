@@ -29,7 +29,7 @@ public class UserController {
         return userDaoService.findAll();
     }
 
-    @GetMapping("users/{id}")
+    @GetMapping("/users/{id}")
     @ApiOperation(nickname = "GetUserById",value = "This method is to get user by their userId")
     public User retrieveUser(@PathVariable int id){
         User user = userDaoService.findOne(id);
@@ -49,7 +49,7 @@ public class UserController {
         return ResponseEntity.created(location).build();
     }
 
-    @DeleteMapping("users/{id}")
+    @DeleteMapping("/users/{id}")
     @ApiOperation(nickname = "DeleteUser",value = "Delete a user by the Id")
     public User deleteUserById(@PathVariable Integer id){
         User user = userDaoService.deleteUserById(id);
