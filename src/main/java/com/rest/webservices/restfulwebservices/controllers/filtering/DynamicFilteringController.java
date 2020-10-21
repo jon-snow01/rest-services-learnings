@@ -1,9 +1,9 @@
-package com.rest.webservices.restfulwebservices.controllers;
+package com.rest.webservices.restfulwebservices.controllers.filtering;
 
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-import com.rest.webservices.restfulwebservices.beans.DynamicUserCredentials;
+import com.rest.webservices.restfulwebservices.beans.filtering.DynamicUserCredentials;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.converter.json.MappingJacksonValue;

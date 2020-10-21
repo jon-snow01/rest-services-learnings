@@ -1,6 +1,6 @@
-package com.rest.webservices.restfulwebservices.controllers;
+package com.rest.webservices.restfulwebservices.controllers.filtering;
 
-import com.rest.webservices.restfulwebservices.beans.StaticUserCredentials;
+import com.rest.webservices.restfulwebservices.beans.filtering.StaticUserCredentials;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

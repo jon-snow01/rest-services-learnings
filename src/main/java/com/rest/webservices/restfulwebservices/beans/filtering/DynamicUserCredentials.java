@@ -1,19 +1,19 @@
-package com.rest.webservices.restfulwebservices.beans;
+package com.rest.webservices.restfulwebservices.beans.filtering;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class StaticUserCredentials {
+@JsonFilter("DynamicUserCredentialsFilter")
+public class DynamicUserCredentials {
 
     private String uuid;
-    //Hiding the password to be shown in response....(Static Filtering)
-    @JsonIgnore
     private String password;
     private String mobile;
 
-    public StaticUserCredentials() {
+    public DynamicUserCredentials() {
     }
 
-    public StaticUserCredentials(String uuid, String password, String mobile) {
+    public DynamicUserCredentials(String uuid, String password, String mobile) {
         this.uuid = uuid;
         this.password = password;
         this.mobile = mobile;
